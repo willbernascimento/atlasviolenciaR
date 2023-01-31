@@ -1,5 +1,5 @@
 
-#' Checa o input de id
+#' Checa o tipo do input de id
 #' @param x um ID específico de cada uma das funções `get_`
 #'
 #'
@@ -10,7 +10,7 @@ check_input_id <- function(x) {
   for (i in x){
 
   if(is.character(i)){
-    stop(sprintf('Erro: você deveria inserir um número inteiro, não um %s', class(x)))
+    stop(sprintf('Erro: você deveria inserir um número inteiro, não um %s', class(i)))
   } else if ((i < 0) | (i %% 1 > 0)){
     stop('Erro: você deveria inserir um número inteiro positivo. Veja a lista de IDs disponíveis.')
   }
