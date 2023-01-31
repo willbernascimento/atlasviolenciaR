@@ -7,7 +7,7 @@ Maintainer: Willber Nascimento <nascimentowillber@proton.me>
 Description: Este pacote é um cliente para consumo da API do Atlas da Violência desenvolvida e disponibilizada pelo IPEA DATA. 
     Com o uso de simples chamadas é possível obter todos os dados utilizados pelos serviços do Atlas da Violência.
     Nosso intuito é facilitar o acesso aos usuários do R a essa API, bem como democratizar o acesso aos dados públicos.
-License: GPL-3
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1

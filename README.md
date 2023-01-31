@@ -2,21 +2,29 @@
 
 Este é um pacote do R que permite o consumo da API do [Atlas da Violência](https://www.ipea.gov.br/atlasviolencia/) na linguagem R.
 
-# Como instalar
 
 
+## Como instalar
 
-# Como funciona e como usar
+Você pode instalar a versão mais recente do pacote através do github.
+
+```
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("willbernascimento/atlasviolenciaR")
+```
+
+## Como funciona e como usar
 
 Todas as funçções iniciadas com `get_*` fazem uma requisão para um endpoint específico e retorna um `data.frame` com os dados daquele endpoint. 
 
 Os bancos de dados com as informações de fato são buscados com as funções `get_series_values` e `get_series_values_regions`. As demais funções são para buscar informações acerca das séries, principalmente, seus IDs e Títulos.
 
-
 Para baixar os dados da série *Taxa de óbitos em acidentes de transporte - Faixa etária de 15 - 29 anos* por UF precisamos passar o ID da série e a abrangência geográfica.
 
 
 ```
+library(atlasviolenciaR)
+
 get_series_values(serie_id=56,geographic_scope = 3)
 
 ```
@@ -41,5 +49,11 @@ Com essa chamada, baixamos os dados para as regiões Norte e Nordeste.
 Para saber mais visite a [documentação]() e os [artigos]() disponíveis.
 
 
+## Autores
+
+[Willber Nascimento](wwww.willbernascimento.com)
+
+
+## Licença
 
 
