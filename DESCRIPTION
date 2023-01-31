@@ -16,3 +16,7 @@ Imports:
     jsonlite,
     magrittr,
     tibble
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

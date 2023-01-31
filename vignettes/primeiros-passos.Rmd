@@ -1,0 +1,161 @@
+---
+title: "Primeiros passos com atlasdasviolenciaR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Primeiros passos com atlasdasviolenciaR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(atlasviolenciaR)
+```
+
+O primeiro passo para usar o `atlasdasviolenciaR` é instalar e carregar o pacote. Até o momento, só é possível instalar através do Github. No futuro, disponibilizaremos um bundle em `.zip` para instalação local.
+
+```{r, eval=FALSE}
+
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("willbernascimento/atlasviolenciaR")
+
+library(atlasdasviolenciaR)
+```
+
+## Obtendo os dados
+
+Para obter os dados você só precisa usar as `get_series_values` e `get_series_values_regions` e passar os parâmetros necessários. É importante entender que a API organiza os dados como séries de dados. Nesse sentido, cada tipo de dados está organizado e disponibilizado como uma série, com seu próprio ID e Título. 
+
+
+Para baixar os dados da série *Taxa de óbitos em acidentes de transporte - Faixa etária de 15 - 29 anos* por UF/Estado, precisamos passar o ID da série e a abrangência geográfica.
+
+
+```{r}
+df_serie = get_series_values(serie_id=156,geographic_scope = 3)
+
+```
+
+```{r}
+head(df_serie)
+```
+
+`get_series_values` retorna um `data.frame` com os dados da série especificada (aqui a `156`) para a área geográfica especificada (`3` = Estado). No momento, a chamada coleta todos os dados disponíveis, no futuro pretendemos permitir que o usuário possa delimitar períodos de tempo.
+
+Para saber informações acerca dessa série, podemos usar usar `get_serie` e passarmos o ID como parâmetro.
+
+```{r, message=FALSE}
+get_serie(serie_id = 156)
+```
+
+Agora sabemos o título da série que buscamos.
+
+
+
+**Note** que, nos dois exemplos, precisamos passar um ID válido para a busca funcionar. Além disso, precisamos saber, a priori, o `ID` que desejamos buscar.  Para facilitar essa tarefa, podemos usar as demais funções para obtermos informações sobre os dados disponíveis.
+
+
+## Obtendo informações
+
+
+Podemos buscar informações sobre os temas das séries disponíveis com `get_themes`. Note que não é necessário passar argumentos nessa função.
+
+```{r,message=FALSE}
+get_themes()
+```
+
+`get_themes` retorna um `data.frame` com IDs de temas disponíveis. As séries estão agrupadas dentro dos temas. Para sabermos as séries disponíveis dentro dos temas podemos usar a função `get_series` e passar o ID do tema desejado. Vamos buscar as séries disponíveis sobre o tema *Óbitos por Armas de Fogo*, que tem como `ID = 5`.
+
+```{r,message=FALSE}
+get_series(theme_id = 5)
+```
+
+`get_themes` retorna um `data.frame` com IDs e Títulos de diversas séries sobre o tema pesquisado. 
+
+Para coletarmos os dados dessa série, podemos usar novamente `get_series_values` ou `get_series_values_regions` se queremos escolher regiões específicas.
+
+Vamos baixar os dados da série *ID=185* que é sobre *Óbitos de Jovens por Armas de Fogo*. Vamos baixar a série para todas as regiões geográficas do país.
+
+
+```{r, message=FALSE}
+df_serie_regiao = get_series_values(serie_id=185,geographic_scope = 2)
+
+head(df_serie_regiao)
+
+```
+
+
+## geographic_scope e regions: 
+
+
+Como você pode ver na [documentação]() das funções, `geographic_scope` pode receber `1` para País; `2` para Região; `3` para UF (Estado) e `4` para Município. Ao usar `get_series_values` você deve passar apenas a abrangência e os dados serão retornados. 
+
+Contudo, ao usar `get_series_values_regions` será necessário passar o argumento para `regions` e será necessário que seja uma entrada válida, ou será retornado um erro.
+
+`regions` recebe o código de cada unidade regional sendo buscada. Para `geographic_scope` 3 e 4, esse código refere-se ao identificador usado pelo IBGE para identificar cada unidade. Para os estados/UF, teremos 27 códigos e para os municípios, teremos aproximadamente 5.600. Você pode buscar esses códigos em <https://www.ibge.gov.br/explica/codigos-dos-municipios.php>
+
+
+##### OBS 
+
+É importante notar que os códigos de `regions` depende dos valores de `geographic_scope`.
+
+Quando `geographic_scope` é 1: apenas dados do Brasil estão disponíveis. O código de `regions` é 1076.
+
+Quando `geographic_scope` é 2: podemos usar os identificadores de 1 a 5 para cada região. Sendo 1: Norte; 2: Nordeste e assim por diante
+
+
+Quando `geographic_scope` é 3: podemos usar os identificadores do IBGE para as UF/Estados. Sendo 12: Acre; 27: Alagoas e assim por diante.
+
+Quando `geographic_scope` é 4: podemos usar os identificadores do IBGE para os munnicípios. Sendo 1200013: Acrelândia; 1200054: Assis Brasil e assim por diante.
+
+
+Você pode buscar esses códigos em <https://www.ibge.gov.br/explica/codigos-dos-municipios.php>
+
+
+Vamos baixar os dados da série 185 para o município de Acrelândia:
+
+```{r}
+get_series_values_regions(serie_id=185,geographic_scope = 4, regions = 1200013)
+```
+
+## Demais funções `get_` no plural
+
+As funções que terminam no plural e não possuem parâmetros, tais como , tais como `get_themes` ou `get_fonts` retornam um data.frame com o ID e o Título da informação acerca de um tema, fonte de dados, ou periodicidade disponível. 
+
+
+Por exemplo, 
+
+
+```{r,message=FALSE}
+get_fonts()
+```
+
+E agora periodicidades
+
+```{r,message=FALSE}
+
+get_periodicities()
+
+```
+
+
+## Demais funções `get_` no singular
+
+As funções que terminam no singular, tais como `get_serie` ou `get_periodicity` retornam um data.frame com o ID e o Título da informação da série. 
+
+
+```{r,message=FALSE}
+get_serie(serie_id = 156)
+```
+
+
+Agora a periodicidade
+
+```{r,message=FALSE}
+get_periodicity(periodicity_id = 3)
+```

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{check_input_id}
 \alias{check_input_id}
-\title{Checa o input de id}
+\title{Checa o tipo do input de id}
 \usage{
 check_input_id(x)
 }
@@ -10,5 +10,5 @@ check_input_id(x)
 \item{x}{um ID específico de cada uma das funções `get_`}
 }
 \description{
-Checa o input de id
+Checa o tipo do input de id
 }

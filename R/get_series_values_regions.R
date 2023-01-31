@@ -66,5 +66,3 @@ get_series_values_regions <- function(serie_id, geographic_scope, regions){
 
   return(fromJSON(data_text) %>% as_tibble())
 }
-
-

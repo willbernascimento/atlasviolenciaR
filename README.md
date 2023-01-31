@@ -25,14 +25,14 @@ Para baixar os dados da série *Taxa de óbitos em acidentes de transporte - Fai
 ```
 library(atlasviolenciaR)
 
-get_series_values(serie_id=56,geographic_scope = 3)
+get_series_values(serie_id=156,geographic_scope = 3)
 
 ```
 
 Podemos obter a mesma série, apenas algumas regiões. Para isso, precisamos usar a função `get_series_values_regions` e passar o parâmetro `regions`.
 
 ```
-get_series_values_regions(serie_id=165,geographic_scope = 2, regions=c(1,2)))
+get_series_values_regions(serie_id=156,geographic_scope = 2, regions=c(1,2)))
 
 ```
 
@@ -46,7 +46,11 @@ Com essa chamada, baixamos os dados para as regiões Norte e Nordeste.
  - Existem séries que não possuem dados disponíveis. O resultado dessas chamadas será um `data.frame` vazio.
  
 
-Para saber mais visite a [documentação]() e os [artigos]() disponíveis. Neles você pode encontrar mais informações sobre como usar o pacote e sobre os dados disponíveis.
+## Documentação
+
+Para saber mais visite a [documentação](man/) das funções e os [artigos](vignettes/) disponíveis. Neles você pode encontrar mais informações sobre como usar o pacote e sobre os dados disponíveis.
+
+Recomendamos que você inicie pelos [primeiros passos](vignettes/). Nele você pode encontrar informações sobre como usar o pacote e sobre como funciona a API do Atlas da Violência. 
 
 
 ## Autores
