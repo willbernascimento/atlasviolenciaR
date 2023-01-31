@@ -1,5 +1,10 @@
 # atlasviolenciaR: um cliente para a API do Atlas da Violência escrito em R
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/willbernascimento/atlasviolenciaR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/willbernascimento/atlasviolenciaR/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+
 Este é um pacote do R que permite o consumo da API do [Atlas da Violência](https://www.ipea.gov.br/atlasviolencia/) na linguagem R.
 
 
