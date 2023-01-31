@@ -1,6 +1,6 @@
 ---
 title: "Primeiros passos com atlasdasviolenciaR"
-output: rmarkdown::html_vignette
+output: rmarkdown::pdf_document
 vignette: >
   %\VignetteIndexEntry{Primeiros passos com atlasdasviolenciaR}
   %\VignetteEngine{knitr::rmarkdown}
