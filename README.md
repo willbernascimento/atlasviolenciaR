@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/willbernascimento/atlasviolenciaR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/willbernascimento/atlasviolenciaR/actions/workflows/R-CMD-check.yaml)
+[![Travis build status](https://travis-ci.com/willbernascimento/atlasviolenciaR.svg?branch=main)](https://travis-ci.com/willbernascimento/atlasviolenciaR)
 <!-- badges: end -->
 
 
