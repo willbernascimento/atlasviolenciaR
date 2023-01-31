@@ -50,7 +50,7 @@ Com essa chamada, baixamos os dados para as regiões Norte e Nordeste.
 
 Para saber mais visite a [documentação](man/) das funções e os [artigos](vignettes/) disponíveis. Neles você pode encontrar mais informações sobre como usar o pacote e sobre os dados disponíveis.
 
-Recomendamos que você inicie pelos [primeiros passos](vignettes/). Nele você pode encontrar informações sobre como usar o pacote e sobre como funciona a API do Atlas da Violência. 
+Recomendamos que você inicie pelos [primeiros passos](primeiros-passos.pdf). Nele você pode encontrar informações sobre como usar o pacote e sobre como funciona a API do Atlas da Violência. 
 
 
 ## Autores
