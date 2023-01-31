@@ -2,7 +2,6 @@
 
 export(get_font)
 export(get_fonts)
-export(get_indicators)
 export(get_periodicities)
 export(get_periodicity)
 export(get_serie)
