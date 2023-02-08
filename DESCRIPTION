@@ -1,7 +1,7 @@
 Package: atlasviolenciaR
 Type: Package
 Title: Baixa Dados da API do Atlas da Violência
-Version: 0.1.0
+Version: 0.1.0-alpha
 Author: Willber Nascimento
 Maintainer: Willber Nascimento <nascimentowillber@proton.me>
 Description: Este pacote é um cliente para consumo da API do Atlas da Violência desenvolvida e disponibilizada pelo IPEA DATA. 
