@@ -10,7 +10,6 @@
 Este é um pacote do R que permite o consumo da API do [Atlas da Violência](https://www.ipea.gov.br/atlasviolencia/) na linguagem R.
 
 
-
 ## Como instalar
 
 Você pode instalar a versão mais recente do pacote através do github.
@@ -59,6 +58,11 @@ Para saber mais visite a [documentação](man/) das funções e os [artigos](vig
 
 Recomendamos que você inicie pelos [primeiros passos](inst/primeiros-passos.pdf). Nele você pode encontrar informações sobre como usar o pacote e sobre como funciona a API do Atlas da Violência. 
 
+## Estágio de desenvolvimento atual
+
+No momento estamos em uma versão *alfa*. Isso significa que estamos aumentando a cobertura de testes em todas as funções para poder tratar melhor erros de *input* ou erros na requisição. Nos nossos testes, identificamos que quando passado valores válidos às funções, o resultado tem sido correto, como  esperado. 
+
+Recomendados que você inicie pelos [primeiros passos](inst/primeiros-passos.pdf) para entender como passar valores válidos para as funções.
 
 ## Autores
 
